@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using IT3048C_Final.Data;
+using Microsoft.Extensions.Logging;
 
 namespace IT3048C_Final
 {
@@ -15,8 +16,10 @@ namespace IT3048C_Final
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<AccountDB>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
