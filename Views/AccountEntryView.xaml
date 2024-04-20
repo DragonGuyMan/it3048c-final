@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IT3048C_Final.Views.AccountEntryView"
+             xmlns:viewmodel="clr-namespace:IT3048C_Final.ViewModels"
+             x:DataType="viewmodel:AccountEntryViewModel"
              Title="Account Entry"
              Padding="40">
 
@@ -37,12 +39,12 @@
             <Button 
                 Text="Save"
                 Margin="0,0,20,0"
-                Clicked="BtnSave_Clicked"/>
+                Command="{Binding SaveCommand}"/>
             
             <Button 
                 Text="Cancel"
                 Margin="20,0,0,0"
-                Clicked="BtnCancel_Clicked"/>
+                Command="{Binding CancelCommand}"/>
         </HorizontalStackLayout>
        
     </VerticalStackLayout>

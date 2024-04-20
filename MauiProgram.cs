@@ -1,4 +1,5 @@
 ﻿using IT3048C_Final.Data;
+using IT3048C_Final.ViewModels;
 using IT3048C_Final.Views;
 using Microsoft.Extensions.Logging;
 
@@ -19,7 +20,8 @@ namespace IT3048C_Final
 
             builder.Services.AddSingleton<AccountDB>();
 
-            builder.Services.AddSingleton<AccountEntryView>();
+            builder.Services.AddTransient<AccountEntryView>();
+            builder.Services.AddTransient<AccountEntryViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();

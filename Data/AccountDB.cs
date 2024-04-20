@@ -26,6 +26,11 @@ namespace IT3048C_Final.Data
             return await database.Table<AccountEntry>().Where(x => x.ID == id).FirstOrDefaultAsync();
         }
 
+        public async Task<AccountEntry> GetAccountEntryAsync(string name)
+        {
+            return await database.Table<AccountEntry>().Where(x => x.Name == name).FirstOrDefaultAsync();
+        }
+
         public async Task<List<AccountEntry>> GetAccountEntriesAsync()
         {
             return await database.Table<AccountEntry>().ToListAsync();

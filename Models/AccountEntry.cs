@@ -6,7 +6,7 @@ namespace IT3048C_Final.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-
+        [Unique]
         public string Name { get; set; }
 
         public string Username { get; set; }
