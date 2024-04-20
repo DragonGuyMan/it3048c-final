@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IT3048C_Final.Views.AccountEntryView"
+             Title="Account Entry"
+             Padding="40">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        
+        <Style TargetType="Entry">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,50"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <VerticalStackLayout>
+        <Label Text="Account Name"/>
+        <Entry Text="{Binding Name}"/>
+
+        <Label Text="Username"/>
+        <Entry Text="{Binding Username}"/>
+
+        <Label Text="Password"/>
+        <Entry Text="{Binding Password}"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button 
+                Text="Save"
+                Margin="0,0,20,0"
+                Clicked="BtnSave_Clicked"/>
+            
+            <Button 
+                Text="Cancel"
+                Margin="20,0,0,0"
+                Clicked="BtnCancel_Clicked"/>
+        </HorizontalStackLayout>
+       
+    </VerticalStackLayout>
+</ContentPage>
