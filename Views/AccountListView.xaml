@@ -10,7 +10,7 @@
         <ToolbarItem Text="Add" Clicked="AddAccount" />
     </ContentPage.ToolbarItems>
 
-    <CollectionView x:Name="AccountsListView">
+    <CollectionView x:Name="AccountList">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Padding="10" Orientation="Vertical">

@@ -20,7 +20,9 @@ namespace IT3048C_Final
 
             builder.Services.AddSingleton<AccountDB>();
 
+            builder.Services.AddSingleton<AccountListView>();
             builder.Services.AddTransient<AccountEntryView>();
+
             builder.Services.AddTransient<AccountEntryViewModel>();
 
 #if DEBUG

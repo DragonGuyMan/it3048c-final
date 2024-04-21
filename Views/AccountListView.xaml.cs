@@ -1,19 +1,23 @@
+using IT3048C_Final.Data;
 using IT3048C_Final.Models;
 
 namespace IT3048C_Final.Views;
 
 public partial class AccountListView : ContentPage
 {
-	public AccountListView()
+	AccountDB database;
+
+	public AccountListView(AccountDB accountDB)
 	{
 		InitializeComponent();
         BindingContext = this;
+		database = accountDB;
     }
 
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		AccountsListView.ItemsSource = await App.Database.GetAccountEntriesAsync();
+        AccountList.ItemsSource = await database.GetAccountEntriesAsync();
 	}
 
     private async void AddAccount(object sender, EventArgs e)
