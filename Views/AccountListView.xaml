@@ -10,17 +10,22 @@
         <ToolbarItem Text="Add" Clicked="AddAccount" />
     </ContentPage.ToolbarItems>
 
-    <CollectionView x:Name="AccountList">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Padding="10" Orientation="Vertical">
-                    <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
-                    <Label Text="{Binding Username}" FontSize="Small"/>
+    <VerticalStackLayout>
+        <CollectionView x:Name="AccountList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10">
+                        <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding Username}" FontSize="Small"/>
 
-                    <Button Grid.Column="1" Text="Copy Password" WidthRequest="100"
-                        HeightRequest="40"/>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                        <Button Grid.Column="1" Text="Edit" WidthRequest="100"
+                            HeightRequest="40"/>
+                        
+                        <Button Grid.Column="1" Text="Copy" WidthRequest="100"
+                            HeightRequest="40"/>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
