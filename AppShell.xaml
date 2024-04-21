@@ -11,5 +11,9 @@
         Title="Account Entry"
         ContentTemplate="{DataTemplate views:AccountEntryView}"
         Route="AccountEntry" />
+    <ShellContent
+        Title="Account List"
+        ContentTemplate="{DataTemplate views:AccountListView}"
+        Route="AccountList" />
 
 </Shell>

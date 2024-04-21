@@ -27,7 +27,9 @@ namespace IT3048C_Final.ViewModels
                 var items = await dataAccess.GetAccountEntriesAsync();
                 if (items.Any())
                 {
-                    accounts = new ObservableCollection<AccountEntry>(items);
+                    MainThread.BeginInvokeOnMainThread(() => {
+                        accounts = new ObservableCollection<AccountEntry>(items);
+                    });
                 }
             });
         }
@@ -45,7 +47,7 @@ namespace IT3048C_Final.ViewModels
         string? password;
 
         [ObservableProperty]
-        ObservableCollection<AccountEntry> accounts;
+        ObservableCollection<AccountEntry> accounts = new ObservableCollection<AccountEntry>();
 
         [RelayCommand]
         async Task Save()
@@ -87,14 +89,14 @@ namespace IT3048C_Final.ViewModels
                 accounts.Add(account);
                 dataAccess.UpdateAccountAsync(account);
             }
-            
 
+            await Shell.Current.GoToAsync("//AccountList");
         }
 
         [RelayCommand]
         async Task Cancel()
         {
-            await Shell.Current.GoToAsync(".."); //Add Password List Page 
+            await Shell.Current.GoToAsync("//AccountList");
         }
     }
 }

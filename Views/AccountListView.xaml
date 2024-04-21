@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IT3048C_Final.Views.AccountListView"
+             xmlns:viewmodel="clr-namespace:IT3048C_Final.ViewModels"
+             x:DataType="viewmodel:AccountEntryViewModel"
+             Title="Account List"
+             Padding="40">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddAccount" />
+    </ContentPage.ToolbarItems>
+
+    <CollectionView x:Name="AccountsListView">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="10" Orientation="Vertical">
+                    <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="{Binding Username}" FontSize="Small"/>
+
+                    <Button Grid.Column="1" Text="Copy Password" WidthRequest="100"
+                        HeightRequest="40"/>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
