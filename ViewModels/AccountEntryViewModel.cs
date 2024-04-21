@@ -18,10 +18,10 @@ namespace IT3048C_Final.ViewModels
     [QueryProperty("Password", "Password")]
     public partial class AccountEntryViewModel : ObservableObject
     {
-        AccountDB dataAccess;
-        public AccountEntryViewModel()
+        readonly AccountDB dataAccess;
+        public AccountEntryViewModel(AccountDB accountDB)
         {
-            dataAccess = new AccountDB();
+            dataAccess = accountDB;
 
             Task.Run(async () => {
                 var items = await dataAccess.GetAccountEntriesAsync();
@@ -47,7 +47,7 @@ namespace IT3048C_Final.ViewModels
         string? password;
 
         [ObservableProperty]
-        ObservableCollection<AccountEntry> accounts = new ObservableCollection<AccountEntry>();
+        ObservableCollection<AccountEntry> accounts;
 
         [RelayCommand]
         async Task Save()
