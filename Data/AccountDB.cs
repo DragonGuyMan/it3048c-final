@@ -17,8 +17,15 @@ namespace IT3048C_Final.Data
 
         public AccountDB() 
         {
-            database = new SQLiteAsyncConnection(dbPath, Flags);
-            database.CreateTableAsync<AccountEntry>().Wait();
+            try
+            {
+                database = new SQLiteAsyncConnection(dbPath, Flags);
+                database.CreateTableAsync<AccountEntry>().Wait();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Database initialization failed: {ex.Message}");
+            }
         }
 
         public async Task<AccountEntry> GetAccountEntryAsync(int id)
