@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IT3048C_Final", "IT3048C_Final.csproj", "{6578C0CF-50EF-48CA-B172-9C2627E3D3DE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F807F0B1-6F33-4C1D-840D-CA0324A83F55}"
-	ProjectSection(SolutionItems) = preProject
-		..\First App Development with MAUI\MainPage.xaml = ..\First App Development with MAUI\MainPage.xaml
-		..\First App Development with MAUI\MainPage.xaml.cs = ..\First App Development with MAUI\MainPage.xaml.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IT3048C_Final", "IT3048C_Final.csproj", "{6578C0CF-50EF-48CA-B172-9C2627E3D3DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
