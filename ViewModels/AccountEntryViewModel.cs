@@ -35,16 +35,16 @@ namespace IT3048C_Final.ViewModels
         }
 
         [ObservableProperty]
-        int? id;
+        int id;
 
         [ObservableProperty]
-        string? name;
+        string name;
 
         [ObservableProperty]
-        string? username;
+        string username;
 
         [ObservableProperty]
-        string? password;
+        string password;
 
         [ObservableProperty]
         ObservableCollection<AccountEntry> accounts;
@@ -57,7 +57,8 @@ namespace IT3048C_Final.ViewModels
 
             if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
             {
-                await Shell.Current.DisplayAlert("Empty Entry", "All entries must be filled", "Close");
+                // Needs to be current page for alert to appear
+                await Shell.Current.CurrentPage.DisplayAlert("Empty Entry", "All entries must be filled", "Close");
                 return;
             }
 
@@ -68,6 +69,7 @@ namespace IT3048C_Final.ViewModels
             //    return;
             //}
 
+            // I don't think the Id will ever be null since new AccountEntry items automatically get an Id
             if (Id == null)
             {
                 var account = new AccountEntry {
@@ -75,19 +77,19 @@ namespace IT3048C_Final.ViewModels
                     Username = Username,
                     Password = Password
                 };
-                accounts.Add(account);
-                dataAccess.InsertAccountAsync(account);
+                Accounts.Add(account);
+                await dataAccess.InsertAccountAsync(account);
             } else
             {
-                var account = await dataAccess.GetAccountEntryAsync((int)Id);
-                accounts.Remove(account);
+                var account = await dataAccess.GetAccountEntryAsync(Id);
+                Accounts.Remove(account);
 
                 account.Name = Name;
                 account.Username = Username;
                 account.Password = Password;
 
-                accounts.Add(account);
-                dataAccess.UpdateAccountAsync(account);
+                Accounts.Add(account);
+                await dataAccess.UpdateAccountAsync(account);
             }
 
             await Shell.Current.GoToAsync("//AccountList");
