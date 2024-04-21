@@ -28,7 +28,7 @@ namespace IT3048C_Final.ViewModels
                 if (items.Any())
                 {
                     MainThread.BeginInvokeOnMainThread(() => {
-                        accounts = new ObservableCollection<AccountEntry>(items);
+                        Accounts = new ObservableCollection<AccountEntry>(items);
                     });
                 }
             });
@@ -47,7 +47,7 @@ namespace IT3048C_Final.ViewModels
         string password;
 
         [ObservableProperty]
-        ObservableCollection<AccountEntry> accounts;
+        ObservableCollection<AccountEntry> accounts = [];
 
         [RelayCommand]
         async Task Save()
@@ -69,8 +69,8 @@ namespace IT3048C_Final.ViewModels
             //    return;
             //}
 
-            // I don't think the Id will ever be null since new AccountEntry items automatically get an Id
-            if (Id == null)
+            // I don't think the Id by itself will ever be null since new AccountEntry items automatically get an Id
+            if (Accounts.Where(x => x.ID == Id).FirstOrDefault() == null)
             {
                 var account = new AccountEntry {
                     Name = Name,
@@ -82,7 +82,6 @@ namespace IT3048C_Final.ViewModels
             } else
             {
                 var account = await dataAccess.GetAccountEntryAsync(Id);
-                Accounts.Remove(account);
 
                 account.Name = Name;
                 account.Username = Username;
