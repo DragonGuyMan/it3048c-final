@@ -14,16 +14,14 @@
         <CollectionView x:Name="AccountList">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <HorizontalStackLayout Padding="10">
-                        <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
-                        <Label Text="{Binding Username}" FontSize="Small"/>
+                    <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*" Padding="5">
+                        <Label Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontAttributes="Bold"
+                               HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,50,0"/>
 
-                        <Button Grid.Column="1" Text="Edit" WidthRequest="100"
-                            HeightRequest="40"/>
-                        
-                        <Button Grid.Column="1" Text="Copy" WidthRequest="100"
-                            HeightRequest="40"/>
-                    </HorizontalStackLayout>
+                        <Button Grid.Column="2" Text="Edit" HorizontalOptions="End"/>
+
+                        <Button Grid.Column="3" Text="Copy" HorizontalOptions="End"/>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
