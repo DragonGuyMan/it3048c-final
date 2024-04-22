@@ -14,16 +14,18 @@
         <CollectionView x:Name="AccountList" ItemsSource="{Binding Accounts}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="10" Spacing="5">
-                        <StackLayout>
-                            <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
-                            <Label Text="{Binding Username}" FontSize="Small"/>
-                        </StackLayout>
-                        <HorizontalStackLayout Spacing="10">
-                            <Button Text="Edit" Clicked="EditAccount" WidthRequest="80" HeightRequest="30" FontSize="Small" Padding="5"/>
-                            <Button Text="Copy" Clicked="CopyPassword" WidthRequest="80" HeightRequest="30" FontSize="Small" Padding="5"/>
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
+                    <Border>
+                        <VerticalStackLayout Padding="10" Spacing="5">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                                <Label Text="{Binding Username}" FontSize="Small"/>
+                            </StackLayout>
+                            <HorizontalStackLayout Spacing="10">
+                                <Button Text="Edit" Clicked="EditAccount" WidthRequest="80" HeightRequest="40" FontSize="Small" Padding="5"/>
+                                <Button Text="Copy" Clicked="CopyPassword" WidthRequest="80" HeightRequest="40" FontSize="Small" Padding="5"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

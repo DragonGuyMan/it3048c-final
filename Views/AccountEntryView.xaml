@@ -22,6 +22,7 @@
         <Style TargetType="Button">
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="DarkGreen"/>
         </Style>
     </Page.Resources>
 

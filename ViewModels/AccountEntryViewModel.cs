@@ -2,13 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using IT3048C_Final.Data;
 using IT3048C_Final.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace IT3048C_Final.ViewModels
 {
