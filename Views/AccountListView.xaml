@@ -11,17 +11,19 @@
     </ContentPage.ToolbarItems>
 
     <VerticalStackLayout>
-        <CollectionView x:Name="AccountList">
+        <CollectionView x:Name="AccountList" ItemsSource="{Binding Accounts}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*" Padding="5">
-                        <Label Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontAttributes="Bold"
-                               HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,50,0"/>
-
-                        <Button Grid.Column="2" Text="Edit" HorizontalOptions="End"/>
-
-                        <Button Grid.Column="3" Text="Copy" HorizontalOptions="End"/>
-                    </Grid>
+                    <VerticalStackLayout Padding="10" Spacing="5">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="{Binding Username}" FontSize="Small"/>
+                        </StackLayout>
+                        <HorizontalStackLayout Spacing="10">
+                            <Button Text="Edit" Clicked="EditAccount" WidthRequest="80" HeightRequest="30" FontSize="Small" Padding="5"/>
+                            <Button Text="Copy" Clicked="CopyPassword" WidthRequest="80" HeightRequest="30" FontSize="Small" Padding="5"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
